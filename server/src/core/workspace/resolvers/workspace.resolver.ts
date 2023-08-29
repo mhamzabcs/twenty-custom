@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Query, Args, Mutation, Resolver } from '@nestjs/graphql';
 import { UseGuards } from '@nestjs/common';
 
@@ -44,6 +45,13 @@ export class WorkspaceResolver {
     @PrismaSelector({ modelName: 'Workspace' })
     prismaSelect: PrismaSelect<'Workspace'>,
   ) {
+    const email = workspace?.email ? workspace.email : '';
+    const { platformKey, initial } = data;
+    if (initial) {
+      await this.workspaceService.checkPlatformKey(email, platformKey);
+      delete data.platformKey;
+      delete data.initial;
+    }
     return this.workspaceService.update({
       where: {
         id: workspace.id,

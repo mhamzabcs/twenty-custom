@@ -679,3 +679,11 @@ model ViewField {
   @@unique([workspaceId, viewId, objectName, fieldName])
   @@map("viewFields")
 }
+
+model PlatformKey {
+  id             String    @id @default(uuid()) 
+  email          String
+  platformKey    String
+  workspaceName  String
+  active         Boolean   @default(true)
+}

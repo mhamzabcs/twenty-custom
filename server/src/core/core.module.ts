@@ -14,6 +14,7 @@ import { AttachmentModule } from './attachment/attachment.module';
 import { ActivityModule } from './activity/activity.module';
 import { ViewModule } from './view/view.module';
 import { FavoriteModule } from './favorite/favorite.module';
+import { platformKeyModule } from './platform-key/platform-key.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { FavoriteModule } from './favorite/favorite.module';
     ActivityModule,
     ViewModule,
     FavoriteModule,
+    platformKeyModule
   ],
   exports: [
     AuthModule,
@@ -43,6 +45,7 @@ import { FavoriteModule } from './favorite/favorite.module';
     AnalyticsModule,
     AttachmentModule,
     FavoriteModule,
+    platformKeyModule
   ],
 })
 export class CoreModule {}

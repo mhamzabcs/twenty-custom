@@ -93,6 +93,17 @@ export class WorkspaceService {
     return workspace;
   }
 
+  async checkPlatformKey(email: string, platformKey: string | undefined) {
+    const key = await this.prismaService.client.platformKey.findFirst({
+      where: {
+        email: email,
+      },
+    });
+    if (!key) throw new Error("Platform key for this admin doesn't exist");
+    if (key?.platformKey !== platformKey)
+      throw new Error('Invalid platform key, please try again');
+  }
+
   async deleteWorkspace({
     workspaceId,
     select,

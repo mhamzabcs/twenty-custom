@@ -22,6 +22,7 @@ import {
   ViewSort,
   Workspace,
   WorkspaceMember,
+  PlatformKey,
 } from '@prisma/client';
 
 import { AbilityAction } from './ability.action';
@@ -46,6 +47,7 @@ type SubjectsAbility = Subjects<{
   ViewSort: ViewSort;
   Workspace: Workspace;
   WorkspaceMember: WorkspaceMember;
+  PlatformKey: PlatformKey;
 }>;
 
 export type AppAbility = PureAbility<
