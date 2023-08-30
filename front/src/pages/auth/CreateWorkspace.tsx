@@ -69,8 +69,7 @@ export function CreateWorkspace() {
           variables: {
             data: {
               displayName: data.name,
-              platformKey: data.platformKey,
-              initial: true,
+              platformKey: data.platformKey
             },
           },
           refetchQueries: [getOperationName(GET_CURRENT_USER) ?? ''],
