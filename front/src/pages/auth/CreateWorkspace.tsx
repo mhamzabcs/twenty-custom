@@ -34,7 +34,7 @@ const StyledButtonContainer = styled.div`
 const validationSchema = Yup.object()
   .shape({
     name: Yup.string().required('Name can not be empty'),
-    platformKey: Yup.string().required('Platform key can not be empty')
+    platformKey: Yup.string().required('Platform key can not be empty'),
   })
   .required();
 
@@ -57,7 +57,7 @@ export function CreateWorkspace() {
     mode: 'onChange',
     defaultValues: {
       name: '',
-      platformKey: ''
+      platformKey: '',
     },
     resolver: yupResolver(validationSchema),
   });
@@ -141,30 +141,30 @@ export function CreateWorkspace() {
         </StyledSectionContainer>
       </StyledContentContainer>
       <StyledSectionContainer>
-          <H2Title
-            title="Platform Key"
-            description="You need a platform key to create a workspace"
-          />
-          <Controller
-            name="platformKey"
-            control={control}
-            render={({
-              field: { onChange, onBlur, value },
-              fieldState: { error },
-            }) => (
-              <TextInput
-                autoFocus
-                value={value}
-                placeholder="Platform Key"
-                onBlur={onBlur}
-                onChange={onChange}
-                error={error?.message}
-                fullWidth
-                disableHotkeys
-              />
-            )}
-          />
-        </StyledSectionContainer>
+        <H2Title
+          title="Platform Key"
+          description="You need a platform key to create a workspace"
+        />
+        <Controller
+          name="platformKey"
+          control={control}
+          render={({
+            field: { onChange, onBlur, value },
+            fieldState: { error },
+          }) => (
+            <TextInput
+              autoFocus
+              value={value}
+              placeholder="Platform Key"
+              onBlur={onBlur}
+              onChange={onChange}
+              error={error?.message}
+              fullWidth
+              disableHotkeys
+            />
+          )}
+        />
+      </StyledSectionContainer>
       <StyledButtonContainer>
         <MainButton
           title="Continue"
