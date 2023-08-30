@@ -153,6 +153,9 @@ model Workspace {
   id          String  @id @default(uuid())
   /// @Validator.IsString()
   /// @Validator.IsOptional()
+  platformKey String?
+  /// @Validator.IsString()
+  /// @Validator.IsOptional()
   domainName  String?
   /// @Validator.IsString()
   /// @Validator.IsOptional()
